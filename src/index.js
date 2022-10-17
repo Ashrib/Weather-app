@@ -30,7 +30,14 @@ return (
       <button type="submit">Get weather</button>
     </form><br />
     { (weatherData === null)? null : 
-    <div>Temperature: {Math.round(weatherData?.main?.temp)}</div>
+    <>
+    <p>Temperature: {Math.round(weatherData?.main?.temp)}°C</p>
+    <p>Min: {Math.round(weatherData?.main?.temp_min)}°C</p>
+    <p>Max: {Math.round(weatherData?.main?.temp_max)}°C</p>
+
+    </>
+  
+    
     }
     
   </div>
