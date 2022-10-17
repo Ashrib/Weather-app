@@ -5,7 +5,7 @@ import { useState } from 'react';
 import axios from "axios";
 
 const Weather =  () => {
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState(null);
   const [cityName, setCityName] = useState("");
 
   const submitHandler = (e) => {
@@ -28,8 +28,11 @@ return (
     <form onSubmit={submitHandler}>
       <input type="text" placeholder='enter your city name' onChange={(e)=>{setCityName(e.target.value)}}/>
       <button type="submit">Get weather</button>
-    </form>
-    <div>Temperature: {weatherData.main}</div>
+    </form><br />
+    { (weatherData === null)? null : 
+    <div>Temperature: {Math.round(weatherData?.main?.temp)}</div>
+    }
+    
   </div>
         )
 };
